@@ -102,23 +102,42 @@ main {
 }
 
 .hero {
+    position: relative;
     text-align: center;
     padding: 4rem 2rem;
-    background: linear-gradient(135deg, var(--primary-color), #0056b3);
+    background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d') center/cover no-repeat;
     color: white;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
 }
 
 .hero h1 {
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
     font-size: 3rem;
     margin-bottom: 1rem;
 }
 
 .hero p {
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
     font-size: 1.2rem;
     margin-bottom: 2rem;
 }
 
 .cta-button {
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
     display: inline-block;
     padding: 1rem 2rem;
     background-color: white;

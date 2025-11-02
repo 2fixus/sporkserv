@@ -12,19 +12,15 @@ if (savedTheme === 'dark') {
 }
 
 themeToggle.addEventListener('click', () => {
-    console.log('Theme toggle clicked');
     const currentTheme = body.getAttribute('data-theme');
-    console.log('Current theme:', currentTheme);
     if (currentTheme === 'dark') {
         body.removeAttribute('data-theme');
         themeToggle.textContent = '🌙';
         localStorage.setItem('theme', 'light');
-        console.log('Switched to light mode');
     } else {
         body.setAttribute('data-theme', 'dark');
         themeToggle.textContent = '☀️';
         localStorage.setItem('theme', 'dark');
-        console.log('Switched to dark mode');
     }
 });
 

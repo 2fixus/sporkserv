@@ -11,6 +11,7 @@
 ### HTML
 - Use semantic HTML5 elements
 - Include proper meta tags, Open Graph, and structured data (JSON-LD)
+- **Important**: If you find placeholder information in the JSON-LD structured data, do not remove the block. Instead, correct the placeholder values with accurate information. Removing this block will negatively impact SEO.
 - Add accessibility attributes (aria-label, alt, title)
 - Use lowercase for attributes and elements
 - Indent with 4 spaces

@@ -39,6 +39,7 @@ const navLinks = document.getElementById('nav-links');
 if (hamburgerButton) {
     hamburgerButton.addEventListener('click', () => {
         navLinks.classList.toggle('active');
+        hamburgerButton.classList.toggle('active');
     });
 }
 

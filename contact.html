@@ -72,15 +72,22 @@
             <div class="map">
                 <iframe src="https://maps.google.com/maps?q=420+Boylston+Ave+East+%23308,+Seattle,+WA+98102&output=embed" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" title="Map showing SporkServices office location in Seattle"></iframe>
             </div>
-            <form action="/contact" method="POST" id="contact-form">
-                <label for="name">Name</label>
-                <input name="name" id="name" type="text" placeholder="Name" required>
-                <label for="email">Email</label>
-                <input name="email" id="email" type="email" placeholder="Email" required>
-                <label for="message">Message</label>
-                <textarea name="message" id="message" placeholder="Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
+            <form
+  action="https://formspree.io/f/xnnoebnl"
+  method="POST"
+>
+  <input type="hidden" name="_next" value="https://sporkserv.ooguy.com/thank-you.html">
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
             <p>Get in touch for all your IT needs!</p>
         </section>
     </main>

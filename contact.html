@@ -75,17 +75,21 @@
             <form
   action="https://formspree.io/f/xnnoebnl"
   method="POST"
+  id="contact-form"
 >
   <input type="hidden" name="_next" value="https://sporkserv.ooguy.com/thank-you.html">
   <label>
+    Your name:
+    <input type="text" name="name" required>
+  </label>
+  <label>
     Your email:
-    <input type="email" name="email">
+    <input type="email" name="email" required>
   </label>
   <label>
     Your message:
-    <textarea name="message"></textarea>
+    <textarea name="message" required></textarea>
   </label>
-  <!-- your other form fields go here -->
   <button type="submit">Send</button>
 </form>
             <p>Get in touch for all your IT needs!</p>

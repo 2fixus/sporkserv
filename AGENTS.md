@@ -1,8 +1,5 @@
 # AGENTS.md - SporkServices Project Guidelines
 
-##### this is the code base for the website sporkserv.ooguy.com the main branch
-## approved ode changes should be pushed back up to git to start autoation
-
 ## Build/Lint/Test Commands
 - **Build**: No build process required - static HTML/CSS/JS files
 - **Lint**: No linting configured
@@ -12,34 +9,22 @@
 ## Code Style Guidelines
 
 ### HTML
-- Use semantic HTML5 elements
-- Include proper meta tags, Open Graph, and structured data (JSON-LD)
-- **Important**: If you find placeholder information in the JSON-LD structured data, do not remove the block. Instead, correct the placeholder values with accurate information. Removing this block will negatively impact SEO.
-- Add accessibility attributes (aria-label, alt, title)
-- Use lowercase for attributes and elements
-- Indent with 4 spaces
-- Include favicon and proper DOCTYPE
+- Use semantic HTML5 elements with proper meta tags, Open Graph, and JSON-LD structured data
+- Add accessibility attributes (aria-label, alt, title) and proper DOCTYPE
+- Indent with 4 spaces, lowercase attributes/elements
+- Preserve JSON-LD blocks - correct placeholder values instead of removing
 
 ### CSS
-- Use CSS custom properties (variables) for theming
-- Follow BEM-like naming conventions (e.g., .service-card, .hero)
-- Use flexbox/grid for layouts
-- Include responsive design with mobile-first media queries
-- Add transitions and animations sparingly
-- Use rem/em for scalable units
-- Group related properties logically
+- Use CSS custom properties for theming, BEM-like naming (.service-card, .hero)
+- Flexbox/grid layouts, mobile-first responsive design with rem/em units
+- Minimal animations/transitions, logical property grouping
 
 ### JavaScript
-- Use modern ES6+ syntax (const/let, arrow functions)
-- AddEventListener for DOM interactions
-- Keep functions small and focused
-- Use descriptive variable names
-- Handle form submissions and prevent defaults
-- Minimal DOM manipulation
+- ES6+ syntax (const/let, arrow functions), addEventListener for DOM interactions
+- Descriptive variable names, small focused functions, form validation
+- Minimal DOM manipulation, prevent default on form submissions
 
 ### General
-- No frameworks or build tools - vanilla web technologies
-- Commit messages: imperative mood, concise
-- File naming: lowercase, hyphens for multi-word
-- No external dependencies
-- Prioritize accessibility and SEO
+- Vanilla web technologies only - no frameworks or external dependencies
+- File naming: lowercase with hyphens, imperative commit messages
+- Prioritize accessibility, SEO, and cross-browser compatibility

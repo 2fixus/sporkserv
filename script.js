@@ -80,6 +80,45 @@ themeToggle.addEventListener('click', () => {
     }
 });
 
+// Obfuscate contact information
+document.addEventListener('DOMContentLoaded', function() {
+    const phoneElement = document.querySelector('.phone-obfuscated');
+    const emailElement = document.querySelector('.email-obfuscated');
+    
+    if (phoneElement) {
+        const phone = '+1 (206) 651-5404';
+        phoneElement.innerHTML = phone.split('').map(char => 
+            `<span style="display:inline-block;user-select:none;">${char}</span>`
+        ).join('');
+        
+        phoneElement.style.cursor = 'pointer';
+        phoneElement.title = 'Click to copy phone number';
+        phoneElement.addEventListener('click', function() {
+            navigator.clipboard.writeText(phone.replace(/[^\d]/g, ''));
+            this.style.backgroundColor = '#e8f5e8';
+            setTimeout(() => {
+                this.style.backgroundColor = '';
+            }, 1000);
+        });
+    }
+    
+    if (emailElement) {
+        const email = '2fixus@gmail.com';
+        const parts = email.split('@');
+        emailElement.innerHTML = `${parts[0]}<span style="display:none;">@</span><span style="display:inline-block;user-select:none;">[at]</span>${parts[1]}`;
+        
+        emailElement.style.cursor = 'pointer';
+        emailElement.title = 'Click to copy email address';
+        emailElement.addEventListener('click', function() {
+            navigator.clipboard.writeText(email);
+            this.style.backgroundColor = '#e8f5e8';
+            setTimeout(() => {
+                this.style.backgroundColor = '';
+            }, 1000);
+        });
+    }
+});
+
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();

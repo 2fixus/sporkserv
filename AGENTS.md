@@ -1,5 +1,8 @@
 # AGENTS.md - SporkServices Project Guidelines
 
+##### this is the code base for the website sporkserv.ooguy.com the main branch
+## approved ode changes should be pushed back up to git to start autoation
+
 ## Build/Lint/Test Commands
 - **Build**: No build process required - static HTML/CSS/JS files
 - **Lint**: No linting configured

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SporkServices - Web Dev Demos</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🖥️%3C/text%3E%3C/svg%3E">
+    <meta name="description" content="Interactive web development demos showcasing SporkServices' custom coding skills with HTML5 Canvas.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">🖥️ SporkServices</div>
+            <button class="hamburger" id="hamburger-button" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#demos">Demos</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <h1>Web Dev Demos</h1>
+            <p>Explore interactive examples of our custom coding work using HTML5 Canvas</p>
+        </section>
+
+        <section id="demos" class="services">
+            <h2>Interactive Demos</h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Bouncing Balls</h3>
+                    <canvas id="bouncing-canvas" width="400" height="300"></canvas>
+                    <p>A simple physics simulation demonstrating animation and collision detection.</p>
+                </div>
+                <div class="demo-card">
+                    <h3>Particle System</h3>
+                    <canvas id="particle-canvas" width="400" height="300"></canvas>
+                    <p>Dynamic particle effects for visual appeal in web applications.</p>
+                </div>
+                <div class="demo-card">
+                    <h3>Animated Text</h3>
+                    <canvas id="text-canvas" width="400" height="300"></canvas>
+                    <p>Creative text animations for engaging user interfaces.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 SporkServices. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/sporkservices" aria-label="Facebook">Facebook</a>
+            <a href="https://www.twitter.com/sporkservices" aria-label="Twitter">Twitter</a>
+            <a href="https://www.linkedin.com/company/sporkservices" aria-label="LinkedIn">LinkedIn</a>
+        </div>
+        <p>Ready to upgrade your tech? <a href="contact.html" style="color: white; text-decoration: underline;">Contact us today!</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Bouncing Balls Demo
+        const bouncingCanvas = document.getElementById('bouncing-canvas');
+        const bouncingCtx = bouncingCanvas.getContext('2d');
+
+        let balls = [];
+        for (let i = 0; i < 5; i++) {
+            balls.push({
+                x: Math.random() * 350 + 25,
+                y: Math.random() * 250 + 25,
+                vx: (Math.random() - 0.5) * 4,
+                vy: (Math.random() - 0.5) * 4,
+                radius: 20,
+                color: `hsl(${Math.random() * 360}, 70%, 50%)`
+            });
+        }
+
+        function animateBouncing() {
+            bouncingCtx.clearRect(0, 0, 400, 300);
+            balls.forEach(ball => {
+                ball.x += ball.vx;
+                ball.y += ball.vy;
+
+                if (ball.x - ball.radius < 0 || ball.x + ball.radius > 400) ball.vx *= -1;
+                if (ball.y - ball.radius < 0 || ball.y + ball.radius > 300) ball.vy *= -1;
+
+                bouncingCtx.beginPath();
+                bouncingCtx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+                bouncingCtx.fillStyle = ball.color;
+                bouncingCtx.fill();
+            });
+            requestAnimationFrame(animateBouncing);
+        }
+        animateBouncing();
+
+        // Particle System Demo
+        const particleCanvas = document.getElementById('particle-canvas');
+        const particleCtx = particleCanvas.getContext('2d');
+
+        let particles = [];
+        for (let i = 0; i < 100; i++) {
+            particles.push({
+                x: Math.random() * 400,
+                y: Math.random() * 300,
+                vx: (Math.random() - 0.5) * 2,
+                vy: (Math.random() - 0.5) * 2,
+                life: Math.random() * 100 + 50
+            });
+        }
+
+        function animateParticles() {
+            particleCtx.clearRect(0, 0, 400, 300);
+            particles.forEach((p, i) => {
+                p.x += p.vx;
+                p.y += p.vy;
+                p.life--;
+
+                if (p.life <= 0) {
+                    particles[i] = {
+                        x: Math.random() * 400,
+                        y: Math.random() * 300,
+                        vx: (Math.random() - 0.5) * 2,
+                        vy: (Math.random() - 0.5) * 2,
+                        life: Math.random() * 100 + 50
+                    };
+                }
+
+                particleCtx.beginPath();
+                particleCtx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+                particleCtx.fillStyle = `rgba(0, 123, 255, ${p.life / 150})`;
+                particleCtx.fill();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // Animated Text Demo
+        const textCanvas = document.getElementById('text-canvas');
+        const textCtx = textCanvas.getContext('2d');
+
+        let text = "SporkServices";
+        let textIndex = 0;
+        let displayText = "";
+
+        function animateText() {
+            textCtx.clearRect(0, 0, 400, 300);
+            textCtx.font = "2rem Arial";
+            textCtx.fillStyle = "white";
+            textCtx.textAlign = "center";
+
+            if (textIndex < text.length) {
+                displayText += text[textIndex];
+                textIndex++;
+            }
+
+            textCtx.fillText(displayText, 200, 150);
+
+            // Add some glow effect
+            textCtx.shadowColor = "blue";
+            textCtx.shadowBlur = 10;
+            textCtx.fillText(displayText, 200, 150);
+
+            if (textIndex < text.length || Math.random() < 0.01) {
+                requestAnimationFrame(animateText);
+            } else {
+                setTimeout(() => {
+                    textIndex = 0;
+                    displayText = "";
+                    animateText();
+                }, 2000);
+            }
+        }
+        animateText();
+    </script>
+</body>
+</html>

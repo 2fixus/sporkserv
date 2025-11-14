@@ -59,6 +59,12 @@
                     <canvas id="webgl-canvas" width="400" height="300"></canvas>
                     <p>Bleeding-edge 3D graphics using WebGL for immersive web experiences.</p>
                 </div>
+                <div class="demo-card">
+                    <h3>Interactive Drawing Canvas</h3>
+                    <canvas id="drawing-canvas" width="400" height="300" style="border: 1px solid #ccc;"></canvas>
+                    <p>Functional drawing tool - click and drag to draw. Demonstrates real-time user interaction.</p>
+                    <button id="clear-drawing">Clear</button>
+                </div>
             </div>
         </section>
     </main>
@@ -387,6 +393,46 @@
         }
 
         animateWebGL();
+
+        // Interactive Drawing Canvas Demo
+        const drawingCanvas = document.getElementById('drawing-canvas');
+        const drawingCtx = drawingCanvas.getContext('2d');
+        const clearButton = document.getElementById('clear-drawing');
+
+        drawingCtx.lineWidth = 5;
+        drawingCtx.lineCap = 'round';
+        drawingCtx.strokeStyle = 'blue';
+
+        let isDrawing = false;
+        let lastX = 0;
+        let lastY = 0;
+
+        function startDrawing(e) {
+            isDrawing = true;
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            drawingCtx.beginPath();
+            drawingCtx.moveTo(lastX, lastY);
+            drawingCtx.lineTo(e.offsetX, e.offsetY);
+            drawingCtx.stroke();
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+        }
+
+        drawingCanvas.addEventListener('mousedown', startDrawing);
+        drawingCanvas.addEventListener('mousemove', draw);
+        drawingCanvas.addEventListener('mouseup', stopDrawing);
+        drawingCanvas.addEventListener('mouseout', stopDrawing);
+
+        clearButton.addEventListener('click', () => {
+            drawingCtx.clearRect(0, 0, 400, 300);
+        });
     </script>
 </body>
 </html>

@@ -415,6 +415,13 @@ footer {
         z-index: 1001;
     }
 
+    #theme-toggle {
+        position: absolute;
+        top: 1rem;
+        right: 4rem;
+        z-index: 1002;
+    }
+
     .hamburger.active {
         transform: rotate(90deg);
     }

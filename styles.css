@@ -213,13 +213,13 @@ main {
     color: white;
 }
 
-.services, .about, .portfolio, .testimonials {
+.services, .ai-services, .about, .portfolio, .testimonials {
     padding: 4rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.services h2, .about h2, .portfolio h2, .testimonials h2 {
+.services h2, .ai-services h2, .about h2, .portfolio h2, .testimonials h2 {
     text-align: center;
     margin-bottom: 3rem;
     font-size: 2.5rem;
@@ -467,7 +467,7 @@ footer {
         animation-fill-mode: both;
     }
 
-    .services, .about, .portfolio, .testimonials {
+    .services, .ai-services, .about, .portfolio, .testimonials {
         padding: 2rem 1rem;
     }
 
